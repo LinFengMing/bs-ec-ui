@@ -97,7 +97,24 @@ function offcanvasHandler() {
   });
 }
 
+function searchHandler() {
+  const searchBtn = document.getElementById("search-btn");
+  const itemsWrapper = document.getElementById("items-wrapper");
+  const spinnerWrapper = document.getElementById("spinner-wrapper");
+
+  searchBtn.addEventListener("click", () => {
+    itemsWrapper.classList.add("d-none");
+    spinnerWrapper.classList.remove("d-none");
+
+    setTimeout(() => {
+      itemsWrapper.classList.remove("d-none");
+      spinnerWrapper.classList.add("d-none");
+    }, 1500);
+  });
+}
+
 renderItems();
 collapsePCHandler();
 collapseMobileHandler();
 offcanvasHandler();
+searchHandler();
