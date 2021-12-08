@@ -2,6 +2,7 @@ import "./index.scss";
 import "bootstrap/js/dist/carousel";
 import Offcanvas from "bootstrap/js/dist/offcanvas";
 import Collapse from "bootstrap/js/dist/collapse";
+import Modal from "bootstrap/js/dist/modal";
 
 function renderItems() {
   const list = document.getElementById("list");
@@ -113,8 +114,20 @@ function searchHandler() {
   });
 }
 
+function modalHandler() {
+  const cartBtn = document.getElementById("cart-btn");
+  const cart = new Modal(document.getElementById("cart"), {
+    keyboard: false,
+  });
+
+  cartBtn.addEventListener("click", () => {
+    cart.toggle();
+  });
+}
+
 renderItems();
 collapsePCHandler();
 collapseMobileHandler();
 offcanvasHandler();
 searchHandler();
+modalHandler();
